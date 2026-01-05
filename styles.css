@@ -129,6 +129,10 @@ body {
 }
 
 .nav-item-container:hover {
+    background-color: #faf7f0;
+}
+
+.nav-item-container.active {
     background-color: #f7efdf;
 }
 
