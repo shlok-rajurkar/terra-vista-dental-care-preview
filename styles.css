@@ -160,10 +160,10 @@ body {
 .quote-container {
     display: flex;
     flex-direction: column;
-    margin: 200px 200px 200px 200px;
+    margin: 10vw 10vh 10vw 10vh;
 }
 
 .quote {
-    font-size: clamp(1.5rem, 5vw, 2.5rem);
+    font-size: clamp(.5rem, 2vw, 2.5rem);
     text-align: center;
 }
