@@ -42,6 +42,7 @@ body {
 
 .logo {
     font-size: 50px;
+    text-align: center;
 }
 
 .slogan {
@@ -49,6 +50,7 @@ body {
     flex-grow: 0;
     font-size: 20px;
     font-family: cursive;
+    color: rgb(159, 140, 118);
 }
 
 .top-contact-container {
@@ -92,7 +94,7 @@ body {
 .nav.item {
     flex-grow: 1;
     border: 0;
-    font-size: 18px;
+    font-size: clamp(.75em, 1.3vw, 1.25em);
     text-decoration: none;
     color: black;
     text-align: center;
@@ -140,7 +142,10 @@ body {
 
 .schedule-container {
     display: flex;
+    flex-direction: column;
     flex-grow: 1;
+    justify-content: center;
+    align-items: center;
 }
 
 .bottom-contact-container {
@@ -164,6 +169,20 @@ body {
 }
 
 .quote {
-    font-size: clamp(.5rem, 2vw, 2.5rem);
+    font-size: clamp(1rem, 2vw, 2.5rem);
     text-align: center;
 }
+
+.schedule-title {
+    font-size: 1.5em;
+    flex-basis: 1;
+}
+
+.schedule.item-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    flex-grow: 1;
+}
+
+
