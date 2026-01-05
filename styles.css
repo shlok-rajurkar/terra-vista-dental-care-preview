@@ -4,6 +4,10 @@
     /* border: black 1px solid; */
 }
 
+html {
+    font-size: 16px;
+}
+
 body {
     display: flex;
     flex-direction: column;
@@ -22,6 +26,7 @@ body {
     display: flex;
     flex-direction: row;
     padding: 50px;
+    flex-wrap: wrap;
 }
 
 .logo-slogan-container, .top-contact-container {
@@ -43,6 +48,7 @@ body {
     text-align: center;
     flex-grow: 0;
     font-size: 20px;
+    font-family: cursive;
 }
 
 .top-contact-container {
@@ -158,6 +164,6 @@ body {
 }
 
 .quote {
-    font-size: 40px;
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
     text-align: center;
 }
