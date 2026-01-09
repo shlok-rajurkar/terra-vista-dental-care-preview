@@ -1,6 +1,8 @@
 // Sets active nav item
 let basePath = window.location.pathname
 
+alert(basePath)
+
 if (basePath.includes("index.html")) {
     basePath = basePath.split("/index.html")[0]
 }
