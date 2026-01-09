@@ -25,6 +25,7 @@ async function setActiveNav() {
             }
         }
     }
+    return;
 }
 
 
@@ -65,10 +66,14 @@ async function loadFooter() {
 }
 
 async function setLayout() {
+    // await Promise.all([
+    //     loadHeader(),
+    //     loadFooter()
+    // ]);
+
     await Promise.all([
-        loadHeader(),
-        loadFooter()
-    ]);
+        setActiveNav()
+    ])
 
     // Shows body once header and footer load
     document.getElementsByClassName("body-region")[0].classList.remove("hidden");
