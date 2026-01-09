@@ -1,26 +1,7 @@
-// Loads header and footer
-
-async function loadFragment(id, url) {
-    const container = document.getElementById(id);
-    if (!container) {
-        return;
-    }
-
-    try {
-        const res = await fetch(url);
-        if (!res.ok) throw new Error(res.status);
-        container.innerHTML = await res.text();
-    } catch (err) {
-        console.error('Failed to load ${url}', err);
-    }
-}
-
-
-
-
-// Sets nav tab to active depending on page
-
-const pageNavItemIdDictionary = {
+// Sets active nav item
+async function setActiveNav() {
+    
+    const pageNavItemIdDictionary = {
     "Home": "nav-home",
     "Our Doctors": "nav-doctors",
     "Services Offered": "nav-services",
@@ -28,9 +9,10 @@ const pageNavItemIdDictionary = {
     "Insurances": "nav-insurances",
     "Patient Resources": "nav-resources",
     "Contact Us": "nav-contact"
-}
+}    
 
-function underlineActiveNavElement() {
+// Sets nav tab to active depending on page
+
     const title = document.title;
     for (const key in pageNavItemIdDictionary) {
         if (title.includes(key)) {
@@ -38,18 +20,37 @@ function underlineActiveNavElement() {
             if (navItem) {
                 navItem.classList.add("active");
             }
-
         }
     }
 }
 
 
+// Loads header and sets active nav
+async function loadHeader() {
+    const headerContainer = document.getElementById("site-header")
 
-async function createLayout() {
-    loadFragment("site-header", "/header.html");
-    loadFragment("site-footer", "/footer.html");
-    const home = 
-    underlineActiveNavElement();
+    fetch("/header.html")
+        .then(res => res.text())
+        .then(html => {
+        headerContainer.innerHTML = html;
+
+        setActiveNav()
+    });
 }
 
-createLayout();
+// Loads footer
+async function loadFooter() {
+    const footerContainer = document.getElementById("site-footer")
+    fetch("/footer.html")
+        .then(res => res.text())
+        .then(html => {
+            footerContainer.innerHTML = html;
+        })
+}
+
+async function setLayout() {
+    loadHeader()
+    loadFooter()
+}
+
+setLayout()
