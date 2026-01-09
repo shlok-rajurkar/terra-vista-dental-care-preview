@@ -1,7 +1,9 @@
 // Sets active nav item
-const basePath = globalThis.location.pathname.includes("/pages/") 
-  ? globalThis.location.pathname.split("/pages/")[0]
-  : ""; 
+let basePath = window.location.pathname
+
+if (basePath.includes("index.html")) {
+    basePath = basePath.split("/index.html")[0]
+}
 
 async function setActiveNav() {
     
