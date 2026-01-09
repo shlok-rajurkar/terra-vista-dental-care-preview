@@ -1,4 +1,8 @@
 // Sets active nav item
+const basePath = globalThis.location.pathname.includes("/pages/") 
+  ? globalThis.location.pathname.split("/pages/")[0]
+  : ""; 
+
 async function setActiveNav() {
     
     const pageNavItemIdDictionary = {
@@ -29,7 +33,7 @@ async function setActiveNav() {
 async function loadHeader() {
     const headerContainer = document.getElementById("site-header")
 
-    return fetch("/scripts/constant-elements/header.html")
+    return fetch(`${basePath}/scripts/constant-elements/header.html`)
         .then(res => res.text())
         .then(html => {
         headerContainer.innerHTML = html;
@@ -42,7 +46,7 @@ async function loadHeader() {
 async function loadFooter() {
     const footerContainer = document.getElementById("site-footer")
 
-    return fetch("/scripts/constant-elements/footer.html")
+    return fetch(`${basePath}/scripts/constant-elements/footer.html`)
         .then(res => res.text())
         .then(html => {
         footerContainer.innerHTML = html;
