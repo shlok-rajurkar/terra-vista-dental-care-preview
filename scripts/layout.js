@@ -1,11 +1,4 @@
 // Sets active nav item
-let basePath = window.location.pathname
-
-alert(basePath)
-
-if (basePath.includes("index.html")) {
-    basePath = basePath.split("/index.html")[0]
-}
 
 async function setActiveNav() {
     
@@ -37,7 +30,7 @@ async function setActiveNav() {
 async function loadHeader() {
     const headerContainer = document.getElementById("site-header")
 
-    return fetch(`${basePath}/scripts/constant-elements/header.html`)
+    return fetch("/header.html")
         .then(res => res.text())
         .then(html => {
         headerContainer.innerHTML = html;
@@ -50,7 +43,7 @@ async function loadHeader() {
 async function loadFooter() {
     const footerContainer = document.getElementById("site-footer")
 
-    return fetch(`${basePath}/scripts/constant-elements/footer.html`)
+    return fetch("/footer.html")
         .then(res => res.text())
         .then(html => {
         footerContainer.innerHTML = html;
