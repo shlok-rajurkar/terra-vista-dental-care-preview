@@ -30,7 +30,7 @@ async function setActiveNav() {
 async function loadHeader() {
     const headerContainer = document.getElementById("site-header")
 
-    return fetch("../header.html")
+    return fetch("../header.html" | "header.html")
         .then(res => res.text())
         .then(html => {
         headerContainer.innerHTML = html;
@@ -43,7 +43,7 @@ async function loadHeader() {
 async function loadFooter() {
     const footerContainer = document.getElementById("site-footer")
 
-    return fetch("../footer.html")
+    return fetch("../footer.html" | "header.html")
         .then(res => res.text())
         .then(html => {
         footerContainer.innerHTML = html;
