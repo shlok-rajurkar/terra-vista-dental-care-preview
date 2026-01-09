@@ -29,7 +29,7 @@ async function setActiveNav() {
 async function loadHeader() {
     const headerContainer = document.getElementById("site-header")
 
-    fetch("/header.html")
+    return fetch("/header.html")
         .then(res => res.text())
         .then(html => {
         headerContainer.innerHTML = html;
@@ -41,7 +41,7 @@ async function loadHeader() {
 // Loads footer
 async function loadFooter() {
     const footerContainer = document.getElementById("site-footer")
-    fetch("/footer.html")
+    return fetch("/footer.html")
         .then(res => res.text())
         .then(html => {
             footerContainer.innerHTML = html;
@@ -49,8 +49,13 @@ async function loadFooter() {
 }
 
 async function setLayout() {
-    loadHeader()
-    loadFooter()
+    await Promise.all([
+        loadHeader(),
+        loadFooter()
+    ]);
+
+    // Shows body once header and footer load
+    document.getElementsByClassName("body-region")[0].classList.remove("hidden");
 }
 
 setLayout()

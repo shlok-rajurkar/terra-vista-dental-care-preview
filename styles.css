@@ -15,11 +15,16 @@ html {
     font-size: 16px;
 }
 
+
 body {
     display: flex;
     flex-direction: column;
     padding: 0px;
     margin: 0px;
+}
+
+.hidden {
+    visibility: hidden;
 }
 
 .item-list {
@@ -123,11 +128,6 @@ body {
     flex-shrink: 1;
 }
 
-.nav.item:visited,
-.nav.item:active {
-    color: black;
-    text-decoration: none;
-}
 
 .nav.item:hover {
     /* color: #302020; */
@@ -240,6 +240,10 @@ body {
     font-size: clamp(.5rem, 2vw, 2.5rem);
     text-align: center;
     background-color: transparent;
+}
+
+.weird-quote {
+    font-size: 500px;
 }
 
 .schedule-title {
