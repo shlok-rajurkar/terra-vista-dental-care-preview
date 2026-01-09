@@ -32,9 +32,9 @@ async function setActiveNav() {
 async function loadHeader() {
     let headerFilePath = ""
     if (document.title.includes("Home")) {
-        headerFilePath = "../header.html"
-    } else {
         headerFilePath = "header.html"
+    } else {
+        headerFilePath = "../header.html"
     }
     const headerContainer = document.getElementById("site-header")
 
@@ -51,9 +51,9 @@ async function loadHeader() {
 async function loadFooter() {
     let footerFilePath = ""
     if (document.title.includes("Home")) {
-        footerFilePath = "../footer.html"
-    } else {
         footerFilePath = "footer.html"
+    } else {
+        footerFilePath = "../footer.html"
     }
     const footerContainer = document.getElementById("site-footer")
 
