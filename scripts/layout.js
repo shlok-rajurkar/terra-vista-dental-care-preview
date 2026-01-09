@@ -1,3 +1,5 @@
+
+
 // Sets active nav item
 
 async function setActiveNav() {
@@ -28,9 +30,15 @@ async function setActiveNav() {
 
 // Loads header and sets active nav
 async function loadHeader() {
+    let headerFilePath = ""
+    if (document.title.includes("Home")) {
+        headerFilePath = "../header.html"
+    } else {
+        headerFilePath = "header.html"
+    }
     const headerContainer = document.getElementById("site-header")
 
-    return fetch("../header.html" | "header.html")
+    return fetch(headerFilePath)
         .then(res => res.text())
         .then(html => {
         headerContainer.innerHTML = html;
@@ -41,9 +49,15 @@ async function loadHeader() {
 
 // Loads footer
 async function loadFooter() {
+    let footerFilePath = ""
+    if (document.title.includes("Home")) {
+        footerFilePath = "../footer.html"
+    } else {
+        footerFilePath = "footer.html"
+    }
     const footerContainer = document.getElementById("site-footer")
 
-    return fetch("../footer.html" | "header.html")
+    return fetch(footerFilePath)
         .then(res => res.text())
         .then(html => {
         footerContainer.innerHTML = html;
