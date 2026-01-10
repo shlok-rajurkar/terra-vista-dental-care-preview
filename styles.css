@@ -270,12 +270,18 @@ body {
     color: white;
 }   
 
-a.fa {
+
+
+.fa {
     padding: 20px;
-    font-size: 35px;
-    width: 35px;
-    height: 35px;
+    font-size: 40px;
+    width: 1vw;
+    height: 1vw;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-decoration: none;
     margin: 5px 2px;
     color: white;
