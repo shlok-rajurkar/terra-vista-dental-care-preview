@@ -30,46 +30,42 @@ async function setActiveNav() {
 
 
 // Loads header and sets active nav
-async function loadHeader() {
-    let headerFilePath = ""
-    if (document.title.includes("Home")) {
-        headerFilePath = "header.html"
-    } else {
-        headerFilePath = "../header.html"
-    }
-    const headerContainer = document.getElementById("site-header")
+// async function loadHeader() {
+//     let headerFilePath = ""
+//     if (document.title.includes("Home")) {
+//         headerFilePath = "header.html"
+//     } else {
+//         headerFilePath = "../header.html"
+//     }
+//     const headerContainer = document.getElementById("site-header")
 
-    return fetch(headerFilePath)
-        .then(res => res.text())
-        .then(html => {
-        headerContainer.innerHTML = html;
+//     return fetch(headerFilePath)
+//         .then(res => res.text())
+//         .then(html => {
+//         headerContainer.innerHTML = html;
 
-        setActiveNav()
-    });
-}
+//         setActiveNav()
+//     });
+// }
 
 // Loads footer
-async function loadFooter() {
-    let footerFilePath = ""
-    if (document.title.includes("Home")) {
-        footerFilePath = "footer.html"
-    } else {
-        footerFilePath = "../footer.html"
-    }
-    const footerContainer = document.getElementById("site-footer")
+// async function loadFooter() {
+//     let footerFilePath = ""
+//     if (document.title.includes("Home")) {
+//         footerFilePath = "footer.html"
+//     } else {
+//         footerFilePath = "../footer.html"
+//     }
+//     const footerContainer = document.getElementById("site-footer")
 
-    return fetch(footerFilePath)
-        .then(res => res.text())
-        .then(html => {
-        footerContainer.innerHTML = html;
-        })
-}
+//     return fetch(footerFilePath)
+//         .then(res => res.text())
+//         .then(html => {
+//         footerContainer.innerHTML = html;
+//         })
+// }
 
 async function setLayout() {
-    // await Promise.all([
-    //     loadHeader(),
-    //     loadFooter()
-    // ]);
 
     await Promise.all([
         setActiveNav()
