@@ -5,3 +5,4 @@ _site/*
 _site/
 */_site
 _site/styles.css
+_site/index.html
