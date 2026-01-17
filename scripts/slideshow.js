@@ -1,16 +1,17 @@
-async function getSlideshowImages(slideshowImageCount) {
+function getSlideshowImages(slideshowImageCount) {
     const result = [];
     for (let i = 0; i < slideshowImageCount; i++) {
         result[i] = document.getElementById(`img-${i}`);
     }
+    return result;
 }
-async function activateSlideshowElement(element) {
+function activateSlideshowElement(element) {
     element.classList.add("active");
 }
-async function deactivateSlideshowElement(element) {
+function deactivateSlideshowElement(element) {
     element.classList.remove("active");
 }
-async function wrapIncrement(curr, listLength) {
+function wrapIncrement(curr, listLength) {
     if (curr >= listLength - 1) {
         return 0;
     }
@@ -18,7 +19,7 @@ async function wrapIncrement(curr, listLength) {
         return ++curr;
     }
 }
-async function wrapDecrement(curr, listLength) {
+function wrapDecrement(curr, listLength) {
     if (curr <= 0) {
         return --listLength;
     }
@@ -26,9 +27,33 @@ async function wrapDecrement(curr, listLength) {
         return --curr;
     }
 }
-async function slideshowMain() {
+async function slideshowMain(imageCount) {
+    const slideshowImages = getSlideshowImages(imageCount);
     const leftButton = document.getElementById("left-slideshow-arrow");
     const rightButton = document.getElementById("right-slideshow-arrow");
+    let currSlideshowElementIndex = 0;
+    let currSlideshowElement = slideshowImages[0];
+    leftButton.addEventListener("click", function activatePrevElement() {
+        currSlideshowElementIndex = wrapDecrement(currSlideshowElementIndex, imageCount);
+        if (currSlideshowElement) {
+            deactivateSlideshowElement(currSlideshowElement);
+        }
+        currSlideshowElement = slideshowImages[currSlideshowElementIndex];
+        if (currSlideshowElement) {
+            activateSlideshowElement(currSlideshowElement);
+        }
+    });
+    rightButton.addEventListener("click", function activateNextElement() {
+        currSlideshowElementIndex = wrapIncrement(currSlideshowElementIndex, imageCount);
+        if (currSlideshowElement) {
+            deactivateSlideshowElement(currSlideshowElement);
+        }
+        currSlideshowElement = slideshowImages[currSlideshowElementIndex];
+        if (currSlideshowElement) {
+            activateSlideshowElement(currSlideshowElement);
+        }
+    });
 }
+await slideshowMain(3);
 export {};
 //# sourceMappingURL=slideshow.js.map

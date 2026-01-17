@@ -25,11 +25,11 @@ async function setActiveNav() {
     }
 }
 async function setLayout() {
-    await setActiveNav();
+    setActiveNav();
     // Shows body once header and footer load
     const bodyRegion = document.getElementsByClassName("body-region")[0];
     bodyRegion.classList.remove("hidden");
 }
-setLayout();
+await setLayout();
 export {};
 //# sourceMappingURL=layout.js.map

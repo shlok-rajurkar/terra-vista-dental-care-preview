@@ -31,11 +31,11 @@ async function setActiveNav() {
 
 async function setLayout() {
 
-    await setActiveNav()
+    setActiveNav()
 
     // Shows body once header and footer load
     const bodyRegion = document.getElementsByClassName("body-region")[0] as HTMLElement;
     bodyRegion.classList.remove("hidden");
 }
 
-setLayout()
+await setLayout()

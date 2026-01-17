@@ -201,7 +201,7 @@ body {
     grid-template-areas: "overlap-area";
 }
 
-.slideshow-image{
+.slideshow-image {
     width: 100%;
     height: 100%;
     object-fit: fill;
@@ -210,7 +210,7 @@ body {
     z-index: 0;
 }
 
-.slideshow-image.active{
+.slideshow-image.active {
     z-index: 1;
 }
 

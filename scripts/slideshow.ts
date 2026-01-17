@@ -1,19 +1,20 @@
-async function getSlideshowImages(slideshowImageCount: number) {
+function getSlideshowImages(slideshowImageCount: number): Record<number, HTMLElement | null> {
     const result: Record<number, HTMLElement | null> = [];
     for (let i: number = 0; i < slideshowImageCount; i++) {
         result[i] = document.getElementById(`img-${i}`)
     }
+    return result;
 }
 
-async function activateSlideshowElement(element: HTMLElement) {
+function activateSlideshowElement(element: HTMLElement): void {
     element.classList.add("active");
 }
 
-async function deactivateSlideshowElement(element: HTMLElement) {
+function deactivateSlideshowElement(element: HTMLElement): void {
     element.classList.remove("active");
 }
 
-async function wrapIncrement(curr: number, listLength: number) {
+function wrapIncrement(curr: number, listLength: number): number {
     if (curr >= listLength - 1) {
         return 0;
     } else {
@@ -21,7 +22,7 @@ async function wrapIncrement(curr: number, listLength: number) {
     }
 }
 
-async function wrapDecrement(curr: number, listLength: number) {
+function wrapDecrement(curr: number, listLength: number): number {
     if (curr <= 0) {
         return --listLength;
     } else {
@@ -29,7 +30,35 @@ async function wrapDecrement(curr: number, listLength: number) {
     }
 }
 
-async function slideshowMain(): Promise<void> {
+async function slideshowMain(imageCount: number): Promise<void> {
+    const slideshowImages: Record<number, HTMLElement | null> = getSlideshowImages(imageCount);
+
     const leftButton: HTMLButtonElement | null = document.getElementById("left-slideshow-arrow") as HTMLButtonElement;
     const rightButton: HTMLButtonElement | null = document.getElementById("right-slideshow-arrow") as HTMLButtonElement;
+    
+    let currSlideshowElementIndex: number = 0;
+    let currSlideshowElement = slideshowImages[0];
+    
+    leftButton.addEventListener("click", function activatePrevElement(): void {
+        currSlideshowElementIndex = wrapDecrement(currSlideshowElementIndex, imageCount);
+        if (currSlideshowElement) {
+            deactivateSlideshowElement(currSlideshowElement); 
+        }
+        currSlideshowElement = slideshowImages[currSlideshowElementIndex];
+        if (currSlideshowElement) {
+            activateSlideshowElement(currSlideshowElement);
+        }
+    })
+    rightButton.addEventListener("click", function activateNextElement(): void {
+        currSlideshowElementIndex = wrapIncrement(currSlideshowElementIndex, imageCount);
+        if (currSlideshowElement) {
+            deactivateSlideshowElement(currSlideshowElement); 
+        }
+        currSlideshowElement = slideshowImages[currSlideshowElementIndex];
+        if (currSlideshowElement) {
+            activateSlideshowElement(currSlideshowElement);
+        }
+    })
 }
+
+await slideshowMain(3);
