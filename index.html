@@ -21,17 +21,16 @@
 
     <div class="body-region hidden">
         <div class="slideshow-container">
-            <!-- <div class="slideshow"></div> -->
-            <button class="left slideshow-arrow">
+            <button class="left slideshow-arrow" id="left-slideshow-arrow">
                 <img class="arrow-image" src="{{ '/images/slideshow/arrows/LeftArrow.svg' | relative_url}}" alt="left arrow">
             </button>
-            <button class="right slideshow-arrow">
+            <button class="right slideshow-arrow" id="right-slideshow-arrow">
                 <img class="arrow-image" src="{{ '/images/slideshow/arrows/RightArrow.svg' | relative_url}}" alt="right arrow">
             </button>
             <div class="slideshow-image-container">
-                <img id="img-1" src="images/slideshow/display_pictures/SlideshowImage1.jpg" alt="pic 1">
-                <img id="img-2" src="images/slideshow/display_pictures/SlideshowImage2.jpg" alt="pic 2">
-                <img id="img-3" src="images/slideshow/display_pictures/SlideshowImage3.jpg" alt="pic 3">
+                <img class="slideshow-image" id="img-0" src="images/slideshow/display_pictures/SlideshowImage1.jpg" alt="pic 0">
+                <img class="slideshow-image" id="img-1" src="images/slideshow/display_pictures/SlideshowImage2.jpg" alt="pic 1">
+                <img class="slideshow-image" id="img-2" src="images/slideshow/display_pictures/SlideshowImage3.jpg" alt="pic 2">
             </div>
 
         </div>
@@ -48,6 +47,6 @@
         {% include footer.html %}
     </div>
 
-    <script src="{{ '/scripts/layout.js' | relative_url }}"></script>
+    <script type="module" src="{{ '/scripts/layout.js' | relative_url }}"></script>
 </body>
 </html>
