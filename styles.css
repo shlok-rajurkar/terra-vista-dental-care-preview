@@ -214,17 +214,28 @@ body {
     display: flex;
     flex-direction: row;
     gap: 1vw;
-    height: 1vh;
-    width: 1vh;
     justify-content: center;
+    align-items: center;
+}
+
+.bigger-dot-container {
+    height: 1.25vh;
+    width: 1.25vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .slideshow-dot {
     border: 0px;
     background-color: #757575;
+    height: .75vh;
+    width: 1vh;
 }
 
 .slideshow-dot.active {
+    height: 1.25vh;
+    width: 1.25vh;
     background-color: #303030;
 }
 
