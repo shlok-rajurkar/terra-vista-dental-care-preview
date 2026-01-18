@@ -38,6 +38,8 @@ function wrapDecrement(curr: number, listLength: number): number {
     }
 }
 
+
+
 function updateActiveElement(oldIndex: number, newIndex: number, elementList: Record<number, HTMLElement | null>): void {
     let currSlideshowElement = elementList[oldIndex];
     if (currSlideshowElement) {
@@ -50,6 +52,15 @@ function updateActiveElement(oldIndex: number, newIndex: number, elementList: Re
     }
 }
 
+function activateNextSlideshowElement(currElementIndex: number,
+    elementList: Record<number, HTMLElement | null>,
+    dotList: Record<number, HTMLElement | null>
+): void{
+    const tempSlideshowElementIndex = wrapIncrement(currElementIndex, Object.keys(elementList).length)
+    updateActiveElement(currElementIndex, tempSlideshowElementIndex, elementList);
+    updateActiveElement(currElementIndex, tempSlideshowElementIndex, dotList);
+}
+
 async function slideshowMain(imageCount: number): Promise<void> {
     const slideshowImages = getSlideshowImages(imageCount);
     const slideshowDots = getSlideshowDots(imageCount);
@@ -58,10 +69,22 @@ async function slideshowMain(imageCount: number): Promise<void> {
     const rightButton: HTMLButtonElement | null = document.getElementById("right-slideshow-arrow") as HTMLButtonElement;
     
     let currSlideshowElementIndex: number = 0;
+
+    // Automatic Movement
+
+    function resetAutomaticMovement(): void {
+        const tempSlideshowElementIndex = wrapIncrement(currSlideshowElementIndex, imageCount);
+        activateNextSlideshowElement(currSlideshowElementIndex, slideshowImages, slideshowDots);
+        currSlideshowElementIndex = tempSlideshowElementIndex;
+    }
+
+    let movementInterval = setInterval(() => {
+        resetAutomaticMovement();
+    }, 3000);
     
     // Slideshow Arrows
 
-    leftButton.addEventListener("click", function activatePrevElement(): void {
+    leftButton.addEventListener("click", (): void => {
         const tempSlideshowElementIndex = wrapDecrement(currSlideshowElementIndex, imageCount);
         
         updateActiveElement(currSlideshowElementIndex, tempSlideshowElementIndex, slideshowImages);
@@ -69,8 +92,13 @@ async function slideshowMain(imageCount: number): Promise<void> {
         updateActiveElement(currSlideshowElementIndex, tempSlideshowElementIndex, slideshowDots);
 
         currSlideshowElementIndex = tempSlideshowElementIndex;
+
+        clearInterval(movementInterval);
+        movementInterval = setInterval(() => {
+            resetAutomaticMovement();
+    }, 3000);
     })
-    rightButton.addEventListener("click", function activateNextElement(): void {
+    rightButton.addEventListener("click", (): void => {
         const tempSlideshowElementIndex = wrapIncrement(currSlideshowElementIndex, imageCount);
 
         updateActiveElement(currSlideshowElementIndex, tempSlideshowElementIndex, slideshowImages);
@@ -78,6 +106,11 @@ async function slideshowMain(imageCount: number): Promise<void> {
         updateActiveElement(currSlideshowElementIndex, tempSlideshowElementIndex, slideshowDots);
 
         currSlideshowElementIndex = tempSlideshowElementIndex;
+
+        clearInterval(movementInterval);
+        movementInterval = setInterval(() => {
+            resetAutomaticMovement();
+    }, 3000);
     })
 
     // Slideshow Dots
@@ -90,19 +123,35 @@ async function slideshowMain(imageCount: number): Promise<void> {
         updateActiveElement(currSlideshowElementIndex, 0, slideshowImages);
         updateActiveElement(currSlideshowElementIndex, 0, slideshowDots);
         currSlideshowElementIndex = 0;
+
+        clearInterval(movementInterval);
+        movementInterval = setInterval(() => {
+            resetAutomaticMovement();
+    }, 3000);
     })
 
     slideshowDot1.addEventListener("click", (): void => {
         updateActiveElement(currSlideshowElementIndex, 1, slideshowImages);
         updateActiveElement(currSlideshowElementIndex, 1, slideshowDots);
         currSlideshowElementIndex = 1;
+
+        clearInterval(movementInterval);
+        movementInterval = setInterval(() => {
+            resetAutomaticMovement();
+    }, 3000);
     })
 
     slideshowDot2.addEventListener("click", (): void => {
         updateActiveElement(currSlideshowElementIndex, 2, slideshowImages);
         updateActiveElement(currSlideshowElementIndex, 2, slideshowDots);
         currSlideshowElementIndex = 2;
+
+        clearInterval(movementInterval);
+        movementInterval = setInterval(() => {
+            resetAutomaticMovement();
+    }, 3000);
     })
+
 }
 
 await slideshowMain(3);
