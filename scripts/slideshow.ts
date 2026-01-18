@@ -23,6 +23,9 @@ function deactivateSlideshowElement(element: HTMLElement): void {
 }
 
 function wrapIncrement(curr: number, listLength: number): number {
+    if (curr >= listLength || curr < 0 || listLength < 0) {
+        throw new TypeError('Invalid argument')
+    }
     if (curr >= listLength - 1) {
         return 0;
     } else {
@@ -31,6 +34,9 @@ function wrapIncrement(curr: number, listLength: number): number {
 }
 
 function wrapDecrement(curr: number, listLength: number): number {
+    if (curr >= listLength || curr < 0 || listLength < 0) {
+        throw new TypeError('Invalid argument')
+    }
     if (curr <= 0) {
         return --listLength;
     } else {
