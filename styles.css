@@ -369,3 +369,9 @@ body {
 }
 
 
+.copywright {
+    text-align: center;
+    padding: 1vh;
+    background-color: #302020;
+    color: white;
+}
