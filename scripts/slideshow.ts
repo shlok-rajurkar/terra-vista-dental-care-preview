@@ -59,6 +59,8 @@ async function slideshowMain(imageCount: number): Promise<void> {
     
     let currSlideshowElementIndex: number = 0;
     
+    // Slideshow Arrows
+
     leftButton.addEventListener("click", function activatePrevElement(): void {
         const tempSlideshowElementIndex = wrapDecrement(currSlideshowElementIndex, imageCount);
         
@@ -78,13 +80,29 @@ async function slideshowMain(imageCount: number): Promise<void> {
         currSlideshowElementIndex = tempSlideshowElementIndex;
     })
 
-    const slideshowDot0 = slideshowDots[0];
-    const slideshowDot1 = slideshowDots[1];
-    const slideshowDot2 = slideshowDots[2];
+    // Slideshow Dots
 
+    const slideshowDot0 = slideshowDots[0] as HTMLButtonElement;
+    const slideshowDot1 = slideshowDots[1] as HTMLButtonElement;
+    const slideshowDot2 = slideshowDots[2] as HTMLButtonElement;
 
+    slideshowDot0.addEventListener("click", (): void => {
+        updateActiveElement(currSlideshowElementIndex, 0, slideshowImages);
+        updateActiveElement(currSlideshowElementIndex, 0, slideshowDots);
+        currSlideshowElementIndex = 0;
+    })
 
+    slideshowDot1.addEventListener("click", (): void => {
+        updateActiveElement(currSlideshowElementIndex, 1, slideshowImages);
+        updateActiveElement(currSlideshowElementIndex, 1, slideshowDots);
+        currSlideshowElementIndex = 1;
+    })
 
+    slideshowDot2.addEventListener("click", (): void => {
+        updateActiveElement(currSlideshowElementIndex, 2, slideshowImages);
+        updateActiveElement(currSlideshowElementIndex, 2, slideshowDots);
+        currSlideshowElementIndex = 2;
+    })
 }
 
 await slideshowMain(3);
