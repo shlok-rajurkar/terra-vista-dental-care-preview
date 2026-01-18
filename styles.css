@@ -298,7 +298,6 @@ body {
     align-items: center;
     padding: 50px;
     flex-grow: 1;
-    /* background-color: #302020; */
 }
 
 .quote-container {
@@ -310,8 +309,10 @@ body {
 
 .quote {
     font-size: clamp(.5rem, 2vw, 2.5rem);
-    text-align: center;
+    text-align: justify;
     background-color: transparent;
+    width: 70vw;
+    line-height: 1.5;
 }
 
 .weird-quote {
