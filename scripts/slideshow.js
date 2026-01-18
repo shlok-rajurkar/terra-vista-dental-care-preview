@@ -34,6 +34,16 @@ function wrapDecrement(curr, listLength) {
         return --curr;
     }
 }
+function updateActiveElement(oldIndex, newIndex, elementList) {
+    let currSlideshowElement = elementList[oldIndex];
+    if (currSlideshowElement) {
+        deactivateSlideshowElement(currSlideshowElement);
+    }
+    currSlideshowElement = elementList[newIndex];
+    if (currSlideshowElement) {
+        activateSlideshowElement(currSlideshowElement);
+    }
+}
 async function slideshowMain(imageCount) {
     const slideshowImages = getSlideshowImages(imageCount);
     const slideshowDots = getSlideshowDots(imageCount);
@@ -43,39 +53,20 @@ async function slideshowMain(imageCount) {
     let currSlideshowElement = slideshowImages[0];
     let currSlideshowDot = slideshowDots[0];
     leftButton.addEventListener("click", function activatePrevElement() {
-        currSlideshowElementIndex = wrapDecrement(currSlideshowElementIndex, imageCount);
-        if (currSlideshowElement) {
-            deactivateSlideshowElement(currSlideshowElement);
-        }
-        if (currSlideshowDot) {
-            deactivateSlideshowElement(currSlideshowDot);
-        }
-        currSlideshowElement = slideshowImages[currSlideshowElementIndex];
-        currSlideshowDot = slideshowDots[currSlideshowElementIndex];
-        if (currSlideshowElement) {
-            activateSlideshowElement(currSlideshowElement);
-        }
-        if (currSlideshowDot) {
-            activateSlideshowElement(currSlideshowDot);
-        }
+        const tempSlideshowElementIndex = wrapDecrement(currSlideshowElementIndex, imageCount);
+        updateActiveElement(currSlideshowElementIndex, tempSlideshowElementIndex, slideshowImages);
+        updateActiveElement(currSlideshowElementIndex, tempSlideshowElementIndex, slideshowDots);
+        currSlideshowElementIndex = tempSlideshowElementIndex;
     });
     rightButton.addEventListener("click", function activateNextElement() {
-        currSlideshowElementIndex = wrapIncrement(currSlideshowElementIndex, imageCount);
-        if (currSlideshowElement) {
-            deactivateSlideshowElement(currSlideshowElement);
-        }
-        if (currSlideshowDot) {
-            deactivateSlideshowElement(currSlideshowDot);
-        }
-        currSlideshowElement = slideshowImages[currSlideshowElementIndex];
-        currSlideshowDot = slideshowDots[currSlideshowElementIndex];
-        if (currSlideshowElement) {
-            activateSlideshowElement(currSlideshowElement);
-        }
-        if (currSlideshowDot) {
-            activateSlideshowElement(currSlideshowDot);
-        }
+        const tempSlideshowElementIndex = wrapIncrement(currSlideshowElementIndex, imageCount);
+        updateActiveElement(currSlideshowElementIndex, tempSlideshowElementIndex, slideshowImages);
+        updateActiveElement(currSlideshowElementIndex, tempSlideshowElementIndex, slideshowDots);
+        currSlideshowElementIndex = tempSlideshowElementIndex;
     });
+    const slideshowDot0 = slideshowDots[0];
+    const slideshowDot1 = slideshowDots[1];
+    const slideshowDot2 = slideshowDots[2];
 }
 await slideshowMain(3);
 export {};
