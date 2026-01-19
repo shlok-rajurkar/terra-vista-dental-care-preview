@@ -1,4 +1,4 @@
-import { wrapIncrement,
+import { wrapDecrement, wrapIncrement,
 // wrapDecrement,
 // getSlideshowImages,
 // getSlideshowDots,
@@ -9,27 +9,49 @@ import { wrapIncrement,
 // slideshowMain,
  } from '../scripts/slideshow';
 // Utility Tests
-describe('test wrapIncrement', () => {
-    test('incrementing normally', () => {
-        expect(wrapIncrement(0, 3)).toBe(1);
-        expect(wrapIncrement(1, 3)).toBe(2);
-    });
-    test('incrementing past max', () => {
-        expect(wrapIncrement(2, 3)).toBe(0);
-        expect(wrapIncrement(499, 500)).toBe(0);
-    });
-    test('list of length 1', () => {
-        expect(wrapIncrement(0, 1)).toBe(0);
-    });
-    test('illegal arguments', () => {
-        expect(wrapIncrement(3, 3)).toThrow();
-        expect(wrapIncrement(-1, 5)).toThrow();
-        expect(wrapIncrement(5, 1)).toThrow();
-        expect(wrapIncrement(0, 0)).toThrow();
-        expect(wrapIncrement(3, 0)).toThrow();
+describe('test wrapIncrement normal behavior', () => {
+    test.each([
+        [0, 3, 1],
+        [1, 3, 2],
+        [2, 3, 0],
+        [499, 500, 0],
+        [0, 1, 0]
+    ])('when curr=%i, listLength=%i, returns %i', (curr, len, result) => {
+        expect(wrapIncrement(curr, len)).toBe(result);
     });
 });
-// describe('test wrapDecrement', () => {
-//     test('decrem')
-// })
+describe('test wrapIncrement throws', () => {
+    test.each([
+        [3, 3],
+        [-1, 5],
+        [5, 1],
+        [0, 0],
+        [3, 0]
+    ])('throws for curr=%i, listLength=%i', (curr, len) => {
+        expect(() => wrapIncrement(curr, len)).toThrow();
+    });
+});
+describe('test wrapDecrement normal behavior', () => {
+    test.each([
+        [0, 3, 2],
+        [1, 3, 0],
+        [2, 3, 1],
+        [499, 500, 498],
+        [0, 1, 0],
+        [0, 500, 499]
+    ])('when curr=%i, listLength=%i, returns %i', (curr, len, result) => {
+        expect(wrapDecrement(curr, len)).toBe(result);
+    });
+});
+describe('test wrapDecrement throws', () => {
+    test.each([
+        [3, 3],
+        [-1, 5],
+        [5, 1],
+        [0, 0],
+        [3, 0]
+    ])('throws for curr=%i, listLength=%i', (curr, len) => {
+        expect(() => wrapDecrement(curr, len)).toThrow();
+    });
+});
 //# sourceMappingURL=slideshow.test.js.map
