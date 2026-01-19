@@ -44,12 +44,16 @@ body {
     flex-grow: 1;
 }
 
+a {
+    display: inline;
+}
+
 a:hover {
 
 }
 
 a:visited {
-    
+
 }
 
 /* #endregion */
@@ -395,6 +399,17 @@ a:visited {
 
 /* #region Home */
 
+.horizontal-stack.container.home-link {
+    gap: 5vw;
+    width: 60vw;
+}
+
+.horizontal-stack.item.home-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .home-link img {
     height: 10vw;
     width: 10vw;
@@ -409,50 +424,25 @@ a:visited {
 }
 
 .medium {
-    font-size: 3vh;
+    font-size: 2vw;
     margin: 3vh;
     text-align: center;
 }
 
 .medium-small {
-    font-size: 2vh;
+    font-size: 1vw;
 
 }
 
-.horizontal-stack.container {
-    display: flex;
-    flex-direction: row;
-    gap: 7vw;
-    margin: 5vh 1vh;
-    align-items: stretch;
-    justify-content: center;
-}
-
-.horizontal-stack.container.insurance {
-    gap: 2vw;
+.two-by-two-grid.insurance.container {
     width: 70vw;
-    height: 20vh;
+    height: 70vh;
+    gap: 2vh;
+    margin: 10vh;
 }
 
-.horizontal-stack.item {
-    max-width: 20vw;
-}
-
-.horizontal-stack.insurance.item {
-    border: 1px black solid;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    justify-content: center;
-    width: 35vw;
-    flex-grow: 1;
-    padding: 3vw;
-}
-
-.horizontal-stack.insurance.item img {
-    max-height: 5vh;
-    width: auto;
-    margin: 1vh;
+.credit-card-logo {
+    max-height: 3vh;
 }
 
 .insurance-list-container {
@@ -477,22 +467,69 @@ a:visited {
     flex-shrink: 1;
 }
 
+.horizontal-stack.container.insurance {
+    gap: 0vw;
+}
+
+.horizontal-stack.item.card-image {
+    max-height: 10vh;
+    width: auto;
+}
+
 /* #endregion */
 
 /* #region Stacks */
 
-.horizontal-stack.container.home-link {
-    gap: 5vw;
-    width: 60vw;
+.horizontal-stack.container {
+    display: flex;
+    flex-direction: row;
+    gap: 7vw;
+    margin: 5vh 1vh;
+    align-items: stretch;
+    justify-content: center;
 }
 
-.horizontal-stack.item.home-link {
+.horizontal-stack.item {
+    max-width: 20vw;
+}
+
+
+
+/* #endregion */
+
+/* #region Grids */
+
+.two-by-two-grid {
+    display: grid;
+    grid-template-columns: 49% 49%;
+    grid-template-rows: 49% 49%;
+    gap: 1%;
+}
+
+.grid.item {
+    text-align: center;
+    border: 1px black solid;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
+    padding: 2vw;
+}
+
+.grid.item img {
+    margin: 2vh;
 }
 
 /* #endregion */
 
+/* #region Clouds */
 
+.image-cloud-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
 
+/* #endregion */
