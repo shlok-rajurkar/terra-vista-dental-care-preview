@@ -1,3 +1,4 @@
+/* #region General */
 
 * {
     font-family: "Albert Sans", sans-serif;
@@ -35,7 +36,17 @@ body {
     visibility: hidden;
 }
 
-/* Header */
+.body-region {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3vw;
+    flex-grow: 1;
+}
+
+/* #endregion */
+
+/* #region Header */
 
 .item-list {
     list-style-type: none;
@@ -89,7 +100,119 @@ body {
     text-align: end;
 }
 
-/* Nav Bar */
+/* #endregion */
+
+/* #region Footer */
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.map-container, .map.image, .map-region {
+    height: fit-content;
+}
+
+.map-container {
+    padding: 0px;
+    margin: 0px;
+    flex-shrink: 1;
+}
+
+.google-maps-embed {
+    width: 100%;
+    height: 40vh;
+    display: block;
+}
+
+.map-region {
+    display: flex;
+    flex-direction: column;
+    padding: 0px;
+    margin: 0px;
+    flex-shrink: 1;
+}
+
+.bottom-info-container {
+    margin-top: 0vh;
+    margin-bottom: 0vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: #302020;
+    height: 15vh;
+    color: white;
+}
+
+.schedule-container, .email-phone-container, .social-media-container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.schedule-title {
+    display: flex;
+    font-size: 1.5em;
+    flex-grow: 1;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.schedule.item-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-grow: 1;
+    color: white;
+}   
+
+.fa {
+    padding: 20px;
+    font-size: 40px;
+    width: 1vw;
+    height: 1vw;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    margin: 5px 2px;
+    color: white;
+}
+
+.fa-facebook {
+    font-size: 60;
+    background-color: #3b5998;
+}
+
+.fa-google {
+    background-color: #dd4b39;
+}
+
+.fa-instagram {
+    background-color: #125688;
+}
+
+.fa-yelp {
+    background-color: red;
+}
+
+
+.copywright {
+    text-align: center;
+    padding: 1vh;
+    background-color: #302020;
+    color: white;
+}
+
+/* #endregion */
+
+/* #region Nav Bar */
 
 .nav-container {
     display: flex;
@@ -111,8 +234,6 @@ body {
 .nav-divider {
     height: 50px;
     width: 30px;
-    /* border: solid black 1px; */
-    /* background-color: black; */
     align-self: center;
 }
 
@@ -150,7 +271,9 @@ body {
     background-color: white;
 }
 
-/* Slideshow */
+/* #endregion */
+
+/* #region Slideshow */
 
 .slideshow-container {
     border: 1px black solid;
@@ -239,66 +362,11 @@ body {
     background-color: #303030;
 }
 
-.footer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
+/* #endregion */
 
-.map-container, .map.image, .map-region {
-    height: fit-content;
-}
-
-.map-container {
-    padding: 0px;
-    margin: 0px;
-    flex-shrink: 1;
-}
-
-.google-maps-embed {
-    width: 100%;
-    height: 40vh;
-    display: block;
-}
+/* #region Quote */
 
 
-
-.map-region {
-    display: flex;
-    flex-direction: column;
-    padding: 0px;
-    margin: 0px;
-    flex-shrink: 1;
-}
-
-.bottom-info-container {
-    margin-top: 0vh;
-    margin-bottom: 0vh;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    background-color: #302020;
-    height: 15vh;
-    color: white;
-}
-
-.schedule-container, .email-phone-container, .social-media-container {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-
-
-.body-region {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 50px;
-    flex-grow: 1;
-}
 
 .quote-container {
     display: flex;
@@ -315,64 +383,85 @@ body {
     line-height: 1.5;
 }
 
-.weird-quote {
-    font-size: 500px;
+/* #endregion */
+
+/* #region Home */
+
+.home-link img {
+    height: 10vw;
+    width: 10vw;
 }
 
-.schedule-title {
-    display: flex;
-    font-size: 1.5em;
-    flex-grow: 1;
-    flex-direction: column;
-    justify-content: flex-end;
-}
+/* #endregion */
 
-.schedule.item-list {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    flex-grow: 1;
-    color: white;
-}   
+/* #region Insurances */
 
-
-
-.fa {
-    padding: 20px;
-    font-size: 40px;
-    width: 1vw;
-    height: 1vw;
+.text {
     text-align: center;
+}
+
+.medium {
+    font-size: 3vh;
+    margin: 3vh;
+    text-align: center;
+}
+
+.medium-small {
+    font-size: 2vh;
+
+}
+
+.horizontal-stack.container {
+    display: flex;
+    flex-direction: row;
+    gap: 7vw;
+    margin: 5vh 1vh;
+    align-items: center;
+}
+
+.horizontal-stack.item {
+    flex-grow: 1;
+    max-width: 20vw;
+}
+
+.insurance-list-container {
+    display: flex;
+    max-width: 50vw;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3vw;
+}
+
+.insurance-item-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+.insurance-item-container img {
+    max-width: 10vw;
+    height: auto;
+    width: auto;
+    flex-shrink: 1;
+}
+
+/* #endregion */
+
+/* #region Stacks */
+
+.horizontal-stack.container.home-link {
+    gap: 5vw;
+    width: 60vw;
+}
+
+.horizontal-stack.item.home-link {
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    text-decoration: none;
-    margin: 5px 2px;
-    color: white;
 }
 
-.fa-facebook {
-    font-size: 60;
-    background-color: #3b5998;
-}
-
-.fa-google {
-    background-color: #dd4b39;
-}
-
-.fa-instagram {
-    background-color: #125688;
-}
-
-.fa-yelp {
-    background-color: red;
-}
+/* #endregion */
 
 
-.copywright {
-    text-align: center;
-    padding: 1vh;
-    background-color: #302020;
-    color: white;
-}
+
