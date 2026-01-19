@@ -7,3 +7,4 @@ _site/
 _site/styles.css
 _site/index.html\
 node_modules/
+jest.config.js

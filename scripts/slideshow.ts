@@ -1,4 +1,4 @@
-function getSlideshowImages(slideshowImageCount: number): Record<number, HTMLElement | null> {
+export function getSlideshowImages(slideshowImageCount: number): Record<number, HTMLElement | null> {
     const result: Record<number, HTMLElement | null> = [];
     for (let i: number = 0; i < slideshowImageCount; i++) {
         result[i] = document.getElementById(`img-${i}`)
@@ -6,7 +6,7 @@ function getSlideshowImages(slideshowImageCount: number): Record<number, HTMLEle
     return result;
 }
 
-function getSlideshowDots(slideshowImageCount: number): Record<number, HTMLElement | null> {
+export function getSlideshowDots(slideshowImageCount: number): Record<number, HTMLElement | null> {
     const result: Record<number, HTMLElement | null> = [];
     for (let i: number = 0; i < slideshowImageCount; i++) {
         result[i] = document.getElementById(`slideshow-dot-${i}`);
@@ -14,17 +14,17 @@ function getSlideshowDots(slideshowImageCount: number): Record<number, HTMLEleme
     return result;
 }
 
-function activateSlideshowElement(element: HTMLElement): void {
+export function activateSlideshowElement(element: HTMLElement): void {
     element.classList.add("active");
 }
 
-function deactivateSlideshowElement(element: HTMLElement): void {
+export function deactivateSlideshowElement(element: HTMLElement): void {
     element.classList.remove("active");
 }
 
-function wrapIncrement(curr: number, listLength: number): number {
+export function wrapIncrement(curr: number, listLength: number): number {
     if (curr >= listLength || curr < 0 || listLength < 0) {
-        throw new TypeError('Invalid argument')
+        throw new TypeError('Invalid argument');
     }
     if (curr >= listLength - 1) {
         return 0;
@@ -33,7 +33,7 @@ function wrapIncrement(curr: number, listLength: number): number {
     }
 }
 
-function wrapDecrement(curr: number, listLength: number): number {
+export function wrapDecrement(curr: number, listLength: number): number {
     if (curr >= listLength || curr < 0 || listLength < 0) {
         throw new TypeError('Invalid argument')
     }
@@ -44,9 +44,7 @@ function wrapDecrement(curr: number, listLength: number): number {
     }
 }
 
-
-
-function updateActiveElement(oldIndex: number, newIndex: number, elementList: Record<number, HTMLElement | null>): void {
+export function updateActiveElement(oldIndex: number, newIndex: number, elementList: Record<number, HTMLElement | null>): void {
     let currSlideshowElement = elementList[oldIndex];
     if (currSlideshowElement) {
         deactivateSlideshowElement(currSlideshowElement);
@@ -58,7 +56,7 @@ function updateActiveElement(oldIndex: number, newIndex: number, elementList: Re
     }
 }
 
-function activateNextSlideshowElement(currElementIndex: number,
+export function activateNextSlideshowElement(currElementIndex: number,
     elementList: Record<number, HTMLElement | null>,
     dotList: Record<number, HTMLElement | null>
 ): void{
@@ -67,7 +65,7 @@ function activateNextSlideshowElement(currElementIndex: number,
     updateActiveElement(currElementIndex, tempSlideshowElementIndex, dotList);
 }
 
-async function slideshowMain(imageCount: number): Promise<void> {
+export async function slideshowMain(imageCount: number): Promise<void> {
     const slideshowImages = getSlideshowImages(imageCount);
     const slideshowDots = getSlideshowDots(imageCount);
 
@@ -160,4 +158,6 @@ async function slideshowMain(imageCount: number): Promise<void> {
 
 }
 
-await slideshowMain(3);
+export function main(): void {
+    slideshowMain(3);
+}

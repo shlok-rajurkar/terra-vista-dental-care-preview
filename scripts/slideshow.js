@@ -1,24 +1,27 @@
-function getSlideshowImages(slideshowImageCount) {
+export function getSlideshowImages(slideshowImageCount) {
     const result = [];
     for (let i = 0; i < slideshowImageCount; i++) {
         result[i] = document.getElementById(`img-${i}`);
     }
     return result;
 }
-function getSlideshowDots(slideshowImageCount) {
+export function getSlideshowDots(slideshowImageCount) {
     const result = [];
     for (let i = 0; i < slideshowImageCount; i++) {
         result[i] = document.getElementById(`slideshow-dot-${i}`);
     }
     return result;
 }
-function activateSlideshowElement(element) {
+export function activateSlideshowElement(element) {
     element.classList.add("active");
 }
-function deactivateSlideshowElement(element) {
+export function deactivateSlideshowElement(element) {
     element.classList.remove("active");
 }
-function wrapIncrement(curr, listLength) {
+export function wrapIncrement(curr, listLength) {
+    if (curr >= listLength || curr < 0 || listLength < 0) {
+        throw new TypeError('Invalid argument');
+    }
     if (curr >= listLength - 1) {
         return 0;
     }
@@ -26,7 +29,10 @@ function wrapIncrement(curr, listLength) {
         return ++curr;
     }
 }
-function wrapDecrement(curr, listLength) {
+export function wrapDecrement(curr, listLength) {
+    if (curr >= listLength || curr < 0 || listLength < 0) {
+        throw new TypeError('Invalid argument');
+    }
     if (curr <= 0) {
         return --listLength;
     }
@@ -34,7 +40,7 @@ function wrapDecrement(curr, listLength) {
         return --curr;
     }
 }
-function updateActiveElement(oldIndex, newIndex, elementList) {
+export function updateActiveElement(oldIndex, newIndex, elementList) {
     let currSlideshowElement = elementList[oldIndex];
     if (currSlideshowElement) {
         deactivateSlideshowElement(currSlideshowElement);
@@ -44,12 +50,12 @@ function updateActiveElement(oldIndex, newIndex, elementList) {
         activateSlideshowElement(currSlideshowElement);
     }
 }
-function activateNextSlideshowElement(currElementIndex, elementList, dotList) {
+export function activateNextSlideshowElement(currElementIndex, elementList, dotList) {
     const tempSlideshowElementIndex = wrapIncrement(currElementIndex, Object.keys(elementList).length);
     updateActiveElement(currElementIndex, tempSlideshowElementIndex, elementList);
     updateActiveElement(currElementIndex, tempSlideshowElementIndex, dotList);
 }
-async function slideshowMain(imageCount) {
+export async function slideshowMain(imageCount) {
     const slideshowImages = getSlideshowImages(imageCount);
     const slideshowDots = getSlideshowDots(imageCount);
     const leftButton = document.getElementById("left-slideshow-arrow");
@@ -117,6 +123,7 @@ async function slideshowMain(imageCount) {
         }, 3000);
     });
 }
-await slideshowMain(3);
-export {};
+export function main() {
+    slideshowMain(3);
+}
 //# sourceMappingURL=slideshow.js.map
