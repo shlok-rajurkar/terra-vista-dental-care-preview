@@ -199,8 +199,9 @@ a:visited {
     flex-direction: row;
     flex-wrap: wrap;
     background-color: #302020;
-    height: 15vh;
+    min-height: 15vh;
     color: white;
+    padding: 2vh;
 }
 
 .schedule-container, .email-phone-container, .social-media-container {
@@ -263,6 +264,13 @@ a:visited {
     padding: 1vh;
     background-color: #302020;
     color: white;
+}
+
+@media (max-width: 768px) {
+    .bottom-info-container {
+        flex-direction: column;
+        flex-wrap: nowrap;
+    }
 }
 
 /* #endregion */
@@ -443,9 +451,9 @@ a:visited {
     line-height: 1.5;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     .quote {
-        width: 95vw;
+        width: 90vw;
     }
 }
 
