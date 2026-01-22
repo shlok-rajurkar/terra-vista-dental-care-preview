@@ -310,10 +310,10 @@ a:visited {
     text-align: center;
     align-items: center;
     background-color: transparent;
-    align-self: stretch;
+    /* align-self: stretch; */
     justify-content: center;
     display: flex;
-    flex-shrink: 1;
+    /* flex-shrink: 1; */
 }
 
 
@@ -507,11 +507,9 @@ a:visited {
 }
 
 .insurance-item-container img {
-    max-width: 10vw;
     height: auto;
-    width: auto;
+    width: 10vw;
     flex-shrink: 1;
-    flex-grow: 1;
 }
 
 .horizontal-stack.container.insurance {
