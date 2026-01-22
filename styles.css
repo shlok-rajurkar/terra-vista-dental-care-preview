@@ -314,6 +314,7 @@ a:visited {
     justify-content: center;
     display: flex;
     /* flex-shrink: 1; */
+    min-height: 40px;
 }
 
 
