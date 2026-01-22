@@ -475,10 +475,11 @@ a:visited {
 
 .two-by-two-grid.insurance.container {
     width: 70vw;
-    height: 70vh;
     gap: 2vh;
     margin: 10vh;
 }
+
+
 
 .credit-card-logo {
     max-height: 5vh;
@@ -496,10 +497,13 @@ a:visited {
     margin: 10vh;
 }
 
+
+
 .insurance-item-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 
 .insurance-item-container img {
@@ -507,6 +511,7 @@ a:visited {
     height: auto;
     width: auto;
     flex-shrink: 1;
+    flex-grow: 1;
 }
 
 .horizontal-stack.container.insurance {
@@ -523,6 +528,22 @@ a:visited {
     max-width: 20vw;
 }
 
+@media (max-width: 768px) {
+    .two-by-two-grid.insurance.container {
+        width: 90vw;
+    }
+    
+    .insurance-list-container {
+        max-width: 90vw;
+        margin: 10vh 2vw;
+        flex-direction: column;
+    }
+
+    .insurance-item-container img {
+        max-width: none;
+        width: 80%;
+    }
+}
 /* #endregion */
 
 /* #region Stacks */
