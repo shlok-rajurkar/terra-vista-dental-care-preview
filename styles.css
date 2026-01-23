@@ -17,10 +17,6 @@ html {
     font-size: clamp(15px, 1rem + 0.25vw, 17px);
 }
 
-img {
-    object-fit: cover;
-}
-
 :root {
     /* Main Palette */
 
