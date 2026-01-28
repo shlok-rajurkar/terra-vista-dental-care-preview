@@ -544,8 +544,12 @@ a:visited {
     max-width: 10vw;
 }
 
-#care-credit-logo {
+.insurance.image {
     max-width: 20vw;
+}
+
+.insurance.image.pair {
+    max-width: 10vw;
 }
 
 @media (max-width: 768px) {
@@ -565,6 +569,10 @@ a:visited {
 
     .insurance-item-container img {
         width: 40%;
+    }
+
+    .insurance.image {
+        max-width: 90vw;
     }
 }
 /* #endregion */
@@ -619,7 +627,7 @@ a:visited {
 .horizontal-stack.insurance {
     display: flex;
     flex-direction: row;
-    row-gap: 2vh;
+    row-gap: 5vh;
     column-gap: 5vw;
     margin: 5vh 1vh;
     justify-content: center;
@@ -635,6 +643,10 @@ a:visited {
     .horizontal-stack.insurance {
         flex-direction: column;
         align-items: center;
+    }
+
+    .insurance.image {
+        max-width: 90vw;
     }
 
 }
@@ -663,7 +675,7 @@ a:visited {
     text-align: center;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     max-width: 30vw;
 }
