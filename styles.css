@@ -471,6 +471,9 @@ a:visited {
 .horizontal-stack.container.home-link {
     gap: 5vw;
     width: 60vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
 .horizontal-stack.item.home-link {
@@ -517,7 +520,11 @@ a:visited {
     margin-bottom: 7vh;
 }
 
-
+.grid.item {
+    border: 1px grey solid;
+    border-radius: 10%;
+    padding: 1vw;
+}
 
 .insurance-item-container {
     display: flex;
@@ -623,6 +630,7 @@ a:visited {
 /* #endregion */
 
 /* #region Stacks */
+
 
 .horizontal-stack.insurance {
     display: flex;
