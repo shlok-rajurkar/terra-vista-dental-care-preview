@@ -514,8 +514,9 @@ a:visited {
     flex-wrap: wrap;
     justify-content: center;
     gap: 3vw;
-    /* border: 1px black solid; */
-    /* padding: 3vw; */
+    border: 1px grey solid;
+    border-radius: 10%;
+    padding: 3vw;
     margin-top: 0vh;
     margin-bottom: 7vh;
 }
@@ -566,6 +567,7 @@ a:visited {
     
     .insurance-list-container {
         width: 100%;
+        max-width: 85vw;
         margin: 10vh 2vw;
         flex-direction: column;
     }
