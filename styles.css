@@ -73,14 +73,19 @@ body {
 
 a {
     display: inline;
+    font-weight: 400;
 }
 
 a:hover {
-
+    text-shadow: 0.04em 0 0 currentColor;
 }
 
 a:visited {
 
+}
+
+ul {
+    justify-self: start;
 }
 
 .image.contained {
@@ -338,12 +343,13 @@ a:visited {
 
 .nav.item:hover {
     border-bottom: var(--hover-color) 1px solid;
-
+    text-shadow: none;
 }
 
 .nav.item.active {
     border-bottom: var(--active-color) 2px solid;
     background-color: white;
+    text-shadow: none;
 }
 
 @media (max-width: 768px) {
@@ -495,12 +501,6 @@ a:visited {
     text-align: center;
 }
 
-.two-by-two-grid.insurance.container {
-    width: 70vw;
-    gap: 2vh;
-    margin: 10vh;
-}
-
 
 
 .credit-card-logo {
@@ -515,17 +515,13 @@ a:visited {
     justify-content: center;
     gap: 3vw;
     border: 1px grey solid;
-    border-radius: 10%;
+    border-radius: 10vw;
     padding: 3vw;
     margin-top: 0vh;
     margin-bottom: 7vh;
 }
 
-.grid.item {
-    border: 1px grey solid;
-    border-radius: 10%;
-    padding: 1vw;
-}
+
 
 .insurance-item-container {
     display: flex;
@@ -588,22 +584,16 @@ a:visited {
 
 /* #region Specials */
 
-#qr-code, #veneers {
-    grid-column: 1 / span 2;
+
+
+.grid.item.special {
+    height: 40vh;
+    text-align: center;
+    max-width: 50vw;
 }
 
-#qr-code {
-    grid-row: 1;
-}
-
-#veneers {
-    grid-row: 3;
-}
-
-
-
-.grid img {
-    max-width: 30vw;
+#veneers img {
+    width: 15vw;
 }
 
 @media (max-width: 900px) {
@@ -670,25 +660,30 @@ a:visited {
 
 .two-by-two-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10vw;
-    margin: 10vh 10vw;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50% 50%;
+    margin: 0vh 10vw;
+    grid-auto-flow: row;
 }
 
 @media (max-width: 768px) {
     .two-by-two-grid {
         grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(4, 1fr);
     }
 }
 
 .grid.item {
-    text-align: center;
     display: flex;
     flex-direction: column;
+    margin: 1vw;
+    border: 1px grey solid;
+    border-radius: 5vw;
+    padding: 2vw;
     justify-content: flex-start;
     align-items: center;
-    max-width: 30vw;
 }
+
 
 .grid.item img {
     margin: 2vw;
