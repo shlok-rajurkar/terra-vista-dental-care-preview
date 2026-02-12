@@ -376,7 +376,7 @@ ul {
     grid-template-columns: 4% 1fr 4%;
     grid-template-rows: 43% 1fr 43%;
     grid-template-areas: "overlap-area";
-    width: 80%;
+    width: 60%;
     height: auto;
     aspect-ratio: 16 / 9;
 }
