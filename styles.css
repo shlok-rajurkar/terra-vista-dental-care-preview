@@ -595,12 +595,6 @@ ul {
 
 
 
-.grid.item.special {
-    height: 40vh;
-    text-align: center;
-    max-width: 50vw;
-}
-
 #veneers img {
     width: 15vw;
 }
@@ -615,16 +609,6 @@ ul {
     .grid img {
         max-width: 60vw;
     }
-
-    .two-by-three-grid {
-        grid-auto-flow: column;
-    }
-
-    #qr-code, #veneers, #no-insurance, #placeholder {
-        grid-column: 1;
-        grid-row: auto;
-    }
-
 }
 
 
@@ -633,10 +617,9 @@ ul {
 /* #region Stacks */
 
 
-.horizontal-stack.insurance {
+.horizontal-stack {
     display: flex;
     flex-direction: row;
-    row-gap: 5vh;
     column-gap: 5vw;
     margin: 5vh 1vh;
     justify-content: center;
@@ -645,11 +628,17 @@ ul {
 }
 
 .horizontal-stack.item {
-    max-width: 20vw;
+    flex-grow: 1;
+    width: 20vw;
+    margin: 0vw;
+}
+
+.horizontal-stack img {
+    max-height: 15vw;
 }
 
 @media (max-width: 768px) {
-    .horizontal-stack.insurance {
+    .horizontal-stack {
         flex-direction: column;
         align-items: center;
     }
