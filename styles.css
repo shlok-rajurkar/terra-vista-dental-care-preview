@@ -108,6 +108,16 @@ ul {
     }
 }
 
+.align-text-left {
+    text-align: start;
+    min-width: 10vw;
+}
+
+.align-text-right {
+    text-align: end;
+    min-width: 10vw;
+}
+
 /* #endregion */
 
 /* #region Header */
@@ -523,7 +533,6 @@ ul {
     flex-wrap: wrap;
     justify-content: center;
     gap: 3vw;
-    border: 1px grey solid;
     padding: 3vw;
     margin-top: 0vh;
     margin-bottom: 7vh;
@@ -679,7 +688,6 @@ ul {
     display: flex;
     flex-direction: column;
     margin: 1vw;
-    border: 1px grey solid;
     padding: 2vw;
     justify-content: flex-start;
     align-items: center;
@@ -701,7 +709,8 @@ ul {
 }
 
 .bordered-box {
-    border: 1px grey solid;
+    /* border: 1px grey solid; */
+    box-shadow: 0 0 .75rem grey;
 }
 
 @media (max-width: 900px) {
