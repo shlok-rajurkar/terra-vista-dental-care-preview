@@ -134,6 +134,11 @@ ul {
     max-width: 25vw;
     max-height: 25vh;
 }
+
+.large-image {
+    max-width: 45vw;
+    max-height: 45vh;
+}
 /* #endregion */
 
 /* #region Header */
