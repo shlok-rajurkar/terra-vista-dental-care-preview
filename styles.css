@@ -139,17 +139,17 @@ ul {
 
 .small-image {
     max-width: 15vw;
-    max-height: 15vw;
+    height: auto;
 }
 
 .medium-image {
     max-width: 25vw;
-    max-height: 25vh;
+    height: auto;
 }
 
 .large-image {
     max-width: 35vw;
-    max-height: 35vh;
+    height: auto;
 }
 /* #endregion */
 
@@ -516,7 +516,6 @@ ul {
 /* #endregion */
 
 /* #region Home */
-
 .horizontal-stack.container.home-link {
     gap: 5vw;
     width: 60vw;
@@ -536,6 +535,45 @@ ul {
 }
 
 /* #endregion */
+
+
+/* #region Services */
+
+.services-content-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.services-content-item {
+    display: flex;
+}
+
+div.services-content-item:nth-of-type(odd) {
+    flex-direction: row-reverse;
+}
+
+div.services-content-item:nth-of-type(even) {
+    flex-direction: row;
+}
+
+@media (max-width: 768px) {
+    div.services-content-item:nth-of-type(odd) {
+    flex-direction: column;
+    }
+
+    div.services-content-item:nth-of-type(even) {
+        flex-direction: column;
+    }
+}
+
+.services.content-half {
+    flex-grow: 1;
+    width: 35vw;
+}
+
+/* #endregion */
+
+
 
 /* #region Our Doctors */
 
