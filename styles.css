@@ -94,6 +94,18 @@ ul {
     max-height: 30vh;
 }
 
+.main-content-wrapper {
+    max-width: 70vw;
+    justify-self: center;
+    align-self: center;
+}
+
+@media (max-width: 768px) {
+    .main-content-wrapper {
+        max-width: 95vw;
+    }
+}
+
 /* #endregion */
 
 /* #region Text */
@@ -136,8 +148,8 @@ ul {
 }
 
 .large-image {
-    max-width: 45vw;
-    max-height: 45vh;
+    max-width: 35vw;
+    max-height: 35vh;
 }
 /* #endregion */
 
