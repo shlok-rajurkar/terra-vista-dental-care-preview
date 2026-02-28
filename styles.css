@@ -162,7 +162,7 @@ ul {
 
 .header-region {
     min-height: 5vh;
-    background-color: #302020;
+    background-color: #0079d0;
 }
 
 .logo-contact-container {
@@ -170,7 +170,7 @@ ul {
     flex-direction: row;
     padding: 3vw;
     flex-wrap: wrap;
-    background-color: #f7efdf;
+    background-color: #0079d0;
 }
 
 .logo-slogan-container, .top-contact-container {
@@ -330,7 +330,7 @@ ul {
 .copywright {
     text-align: center;
     padding: 1vh;
-    background-color: #302020;
+    background-color: #0079d0;
     color: white;
 }
 
