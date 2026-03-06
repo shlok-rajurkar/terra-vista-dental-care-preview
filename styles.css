@@ -22,6 +22,9 @@ html {
 
     --hover-color: black;
     --active-color: black;
+    --primary-color: #7aaace;
+    --secondary-color: #0079d0;
+
 
     /* Font Sizes */
 
@@ -162,7 +165,7 @@ ul {
 
 .header-region {
     min-height: 5vh;
-    background-color: #0079d0;
+    background-color: var(--secondary-color);
 }
 
 .logo-contact-container {
@@ -170,7 +173,7 @@ ul {
     flex-direction: row;
     padding: 3vw;
     flex-wrap: wrap;
-    background-color: #0079d0;
+    background-color: var(--primary-color);
 }
 
 .logo-slogan-container, .top-contact-container {
@@ -261,7 +264,7 @@ ul {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    background-color: #302020;
+    background-color: var(--primary-color);
     min-height: 15vh;
     color: white;
     padding: 2vh;
@@ -412,14 +415,17 @@ ul {
 
 /* #region Slideshow */
 
+.slideshow-wrapper {
+    width: 60vw;
+}
+
 .slideshow-container {
     border: 1px black solid;
     display: grid;
     margin: 2vw;
-    grid-template-columns: 4% 1fr 4%;
-    grid-template-rows: 43% 1fr 43%;
+    grid-template-columns: 4% 92% 4%;
+    grid-template-rows: 43% 14% 43%;
     grid-template-areas: "overlap-area";
-    width: 60%;
     height: auto;
     aspect-ratio: 16 / 9;
 }
@@ -534,6 +540,10 @@ ul {
     max-width: 10vw;
 }
 
+.home.text.box {
+    max-width: 25vw;
+}
+
 /* #endregion */
 
 
@@ -575,6 +585,7 @@ div.services-content-item:nth-of-type(even) {
 
 
 
+
 /* #region Our Doctors */
 
 .face-image {
@@ -609,6 +620,10 @@ div.services-content-item:nth-of-type(even) {
     margin-bottom: 7vh;
 }
 
+.insurance.horizontal-stack img {
+    max-height: 30vh;
+    width: auto;
+}
 
 
 .insurance-item-container {
@@ -616,6 +631,10 @@ div.services-content-item:nth-of-type(even) {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.two-by-two-grid.insurance.container {
+    max-width: 78vw;
 }
 
 .insurance-item-container img {
@@ -642,6 +661,7 @@ div.services-content-item:nth-of-type(even) {
 
 .insurance.image.pair {
     max-width: 10vw;
+    height: auto;
 }
 
 @media (max-width: 768px) {
@@ -672,7 +692,10 @@ div.services-content-item:nth-of-type(even) {
 
 /* #region Specials */
 
-
+.specials img {
+    max-height: 30vh;
+    width: auto;
+}
 
 #veneers img {
     width: 15vw;
@@ -713,10 +736,6 @@ div.services-content-item:nth-of-type(even) {
     flex-grow: 1;
 }
 
-.horizontal-stack img {
-    max-height: 30vh;
-    width: auto;
-}
 
 @media (max-width: 768px) {
     .horizontal-stack {
@@ -759,7 +778,7 @@ div.services-content-item:nth-of-type(even) {
     display: grid;
     grid-template-columns: 50% 50%;
     grid-template-rows: 50% 50%;
-    margin: 0vh 10vw;
+    /* margin: 0vh 10vw; */
     grid-auto-flow: row;
 }
 
