@@ -568,6 +568,7 @@ ul {
 .services-content-wrapper {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .services-content-item {
@@ -625,7 +626,7 @@ div.services-content-item:nth-of-type(even) {
 
 @media (max-width: 768px) {
     .bordered-box {
-        width: 80vw;
+        width: 100%;
         padding: 0vw;
     }
     
@@ -782,7 +783,7 @@ div.services-content-item:nth-of-type(even) {
 /* #region Stacks */
 
 .section-parent {
-    width: 80vw;
+    width: 100%;
 }
 
 .horizontal-stack {
