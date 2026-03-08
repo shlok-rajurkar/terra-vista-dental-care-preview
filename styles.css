@@ -129,7 +129,7 @@ ul {
 /* #region Text */
 
 .text.box {
-    max-width: 50vw;
+    max-width: 80%;
     margin-bottom: 5vh;
 }
 
@@ -640,8 +640,16 @@ div.services-content-item:nth-of-type(even) {
 
 .face-image {
     float: left;
-    width: 10vw;
+    width: 200px;
     margin: 2vw;
+}
+
+@media (max-width: 768px) {
+    .large.text.box.doctors {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 }
 
 .doctors.large.text.box {
