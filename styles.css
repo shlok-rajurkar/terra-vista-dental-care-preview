@@ -710,12 +710,12 @@ div.services-content-item:nth-of-type(even) {
 }
 
 .insurance.image {
-    max-width: 20vw;
+    max-width: 100%;
 }
 
-.insurance.image.pair {
-    max-width: 10vw;
+.pair.medium-image.card {
     height: auto;
+    margin: 0vw;
 }
 
 @media (max-width: 768px) {
@@ -731,7 +731,7 @@ div.services-content-item:nth-of-type(even) {
     }
 
     .insurance-item-container {
-        margin: 1vh;
+        margin: 20px;
     }
 
     .insurance-item-container img {
@@ -755,11 +755,6 @@ div.services-content-item:nth-of-type(even) {
     width: 15vw;
 }
 
-@media (max-width: 900px) {
-    .grid img {
-        max-width: 50vw;
-    }
-}
 
 @media (max-width: 768px) {
     .grid img {
@@ -838,8 +833,10 @@ div.services-content-item:nth-of-type(even) {
 
 @media (max-width: 768px) {
     .two-by-two-grid {
-        grid-template-columns: repeat(1, 1fr);
-        grid-template-rows: repeat(4, 1fr);
+        /* grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(4, 1fr); */
+        display: flex;
+        flex-direction: column;
     }
 }
 
@@ -850,11 +847,12 @@ div.services-content-item:nth-of-type(even) {
     padding: 2vw;
     justify-content: flex-start;
     align-items: center;
+    flex-shrink: 1;
 }
 
 
 .grid.item img {
-    margin: 2vw;
+    margin: 10px;
 }
 
 .two-by-three-grid {
