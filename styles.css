@@ -161,8 +161,8 @@ ul {
 } */
 
 .medium-image {
-    max-width: 400px;
-    height: auto;
+    max-height: 200px;
+    max-width: 100%;
 }
 
 .large-image {
@@ -620,8 +620,21 @@ div.services-content-item:nth-of-type(even) {
 
 /* #endregion */
 
+/* #region Patient Resources */
 
 
+@media (max-width: 768px) {
+    .bordered-box {
+        width: 80vw;
+        padding: 0vw;
+    }
+    
+    .bordered-box.padded {
+        padding: 0vw;
+    }
+}
+
+/* #endregion */
 
 /* #region Our Doctors */
 
