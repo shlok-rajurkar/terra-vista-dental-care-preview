@@ -765,7 +765,6 @@ div.services-content-item:nth-of-type(even) {
     border: 1px solid grey;
     box-shadow: none;
     width: 100%;
-    height: 130px;
     text-align: center;
     flex-grow: 0;
     align-items: center;
@@ -777,12 +776,13 @@ div.services-content-item:nth-of-type(even) {
 }
 
 .specials.horizontal-stack {
-    flex-wrap: wrap;
-    column-gap: 1vw;
+    column-gap: 0px;
+    width: 100%;
 }
 
 .specials.vertical-stack {
     flex-grow: 0;
+    align-self: stretch;
 }
 
 #veneers img {
