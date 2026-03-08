@@ -61,6 +61,7 @@ body {
     flex-direction: column;
     padding: 0px;
     margin: 0px;
+    align-items: stretch;
 }
 
 .hidden {
@@ -73,6 +74,20 @@ body {
     align-items: center;
     padding: 1vw;
     flex-grow: 1;
+    width: 70vw;
+    align-self: center;
+}
+
+@media (max-width: 1024px) {
+    .body-region {
+        width: 85vw;
+    }
+}
+
+@media (max-width: 768px) {
+    .body-region {
+        width: 95vw;
+    }
 }
 
 a {
@@ -97,11 +112,11 @@ ul {
     max-height: 30vh;
 }
 
-.main-content-wrapper {
+/* .main-content-wrapper {
     max-width: 70vw;
     justify-self: center;
     align-self: center;
-}
+} */
 
 @media (max-width: 768px) {
     .main-content-wrapper {
@@ -139,14 +154,14 @@ ul {
 /* #endregion */
 
 /* #region Image */
-
+/* 
 .small-image {
     max-width: 15vw;
     height: auto;
-}
+} */
 
 .medium-image {
-    max-width: 25vw;
+    max-width: 400px;
     height: auto;
 }
 
@@ -540,8 +555,9 @@ ul {
     max-width: 10vw;
 }
 
-.home.text.box {
+.large.home.text.box {
     max-width: 25vw;
+    text-align: justify;
 }
 
 /* #endregion */
@@ -566,7 +582,7 @@ div.services-content-item:nth-of-type(even) {
     flex-direction: row;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     div.services-content-item:nth-of-type(odd) {
     flex-direction: column;
     }
@@ -576,10 +592,31 @@ div.services-content-item:nth-of-type(even) {
     }
 }
 
-.services.content-half {
-    flex-grow: 1;
-    width: 35vw;
+.services.content-half img {
+    width: 300px;
+    height: auto;
 }
+
+.services.content-half p {
+    box-shadow: 0 0 .55rem grey;
+    padding: 20px;
+
+}
+
+.services.content-half {
+    /* flex-grow: 1; */
+    width: 450px;
+    object-fit: fill;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+
+
+
 
 /* #endregion */
 
@@ -592,6 +629,10 @@ div.services-content-item:nth-of-type(even) {
     float: left;
     width: 10vw;
     margin: 2vw;
+}
+
+.doctors.large.text.box {
+    text-align: left;
 }
 
 /* #endregion */
